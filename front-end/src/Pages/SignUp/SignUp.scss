@@ -13,7 +13,29 @@
         gap: 1.5rem;
         > *{
             display: flex;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 0.3rem;
+            
+                label{
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+                input{
+                    max-width: 250px;
+                    min-width: 250px;
+                    padding: 0.5rem;
+                    box-sizing: border-box;
+                    border: 2px solid #f9e076;
+                    border-radius: 0.5rem;
+                }
+                .submit-btn{
+                    max-width: 250px;
+                    min-width: 250px;
+                    padding: 0.5rem;
+                    font-size: 16px;
+                    border-radius: 0.5rem;
+                }
+            
         }
     }
 }
