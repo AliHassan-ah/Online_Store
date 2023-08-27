@@ -33,6 +33,7 @@ const SignUp = () => {
   const submitForm = () => {
     nameValidation()
     emailValidation()
+    passwordValidation()
   }
 
   return (

@@ -20,7 +20,6 @@
                     font-size: 12px;
                     font-weight: 600;
                 }
-             
               
                 .submit-btn{
                     max-width: 250px;
@@ -40,6 +39,7 @@
                 border: 2px solid #f9e076;
                 border-radius: 0.5rem;
             }
+
         }
         .password{
             input{
@@ -50,6 +50,13 @@
                 border: 2px solid #f9e076;
                 border-radius: 0.5rem;
             }
+
+        }
+        .rememberMe{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
         }
     }
 }
