@@ -1,18 +1,18 @@
-    import HomePage from "./Pages/HomePage/HomePage";
-import SignIn from "./Pages/SignIn/SignIn";
-import SignUp from "./Pages/SignUp/SignUp";
+import LogIn from "./Pages/LogIn";
+import SignUp from "./Pages/SignUp";
+import Index from "./Pages/Index";
     const routes = [
         {
             path:'/',
-            element:<HomePage/>
+            element:<Index/>
         },
         {
             path:'/sign-up',
             element:<SignUp/>
         },
         {
-            path:'/sign-in',
-            element:<SignIn/>
+            path:'/log-in',
+            element:<LogIn/>
         },
 
     ]

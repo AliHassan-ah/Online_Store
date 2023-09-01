@@ -1,8 +1,8 @@
 import React, { useState,useEffect } from "react";
 import Cookies from "js-cookie";
-import "./SignIn.scss";
+import "./LogInForm.scss";
 
-const SignIn = () => {
+const LogInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(true);
@@ -100,4 +100,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default LogInForm;
