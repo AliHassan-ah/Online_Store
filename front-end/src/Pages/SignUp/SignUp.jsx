@@ -6,6 +6,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  //Validations
   //Name Validation
   const nameValidation = () => {
     if (name.trim() === "") {
@@ -25,15 +27,21 @@ const SignUp = () => {
       alert("Enter Valid password containing atleast one digit ")
 
     }
-    if (!/^.+@.+\..+$/.test(email.trim())) {
-      alert("Enter Correct Email Adress")
+  }
+  const confirmPasswordValidation = ()=>{
+    if(confirmPassword!==password){
+      alert("Password Not Matching")
     }
   }
+
+  // Validatons End
+
   //Submit Form
   const submitForm = () => {
     nameValidation()
     emailValidation()
     passwordValidation()
+    confirmPasswordValidation()
   }
 
   return (
@@ -81,7 +89,7 @@ const SignUp = () => {
               id="confirmPassword"
               placeholder="Confirm Password"
               onChange={(event) => {
-                setPassword(event.target.value);
+                setConfirmPassword(event.target.value);
               }}
             />
           </div>
