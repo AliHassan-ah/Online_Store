@@ -1,63 +1,37 @@
 import React, { useState } from "react";
 import "./SignUpForm.scss";
-
+import { useFormik } from "formik";
+import { signuUpSchema } from "../../../schemas";
+const initialValues = {
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  }
 const SignUpForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  //Validations
-  //Name Validation
-  const nameValidation = () => {
-    if (name.trim() === "") {
-      alert("Name is Required")
+ const {handleChange,handleBlur,values,errors,handleSubmit} = useFormik({
+    initialValues:initialValues,
+    validationSchema:signuUpSchema,
+    onSubmit:(values)=>{
+      console.log(values)
     }
-  }
-  //Email Validation
-  const emailValidation = () => {
-    if (!/^.+@.+\..+$/.test(email.trim())) {
-      alert("Enter Correct Email Adress")
-    }
-  }
-  //Password Validation
-  const passwordValidation = () => {
-    if (password.trim("") || password.length < 3 || !/\d/.test(password)                 // Check if it contains at least one digit
-    ) {
-      alert("Enter Valid password containing atleast one digit ")
-
-    }
-  }
-  const confirmPasswordValidation = ()=>{
-    if(confirmPassword!==password){
-      alert("Password Not Matching")
-    }
-  }
-
-  // Validatons End
-
-  //Submit Form
-  const submitForm = () => {
-    nameValidation()
-    emailValidation()
-    passwordValidation()
-    confirmPasswordValidation()
-  }
-
+  })
+  console.log("Errors",errors)
   return (
-    <div>
-      <div className="wrapper">
+    <div className="wrapper">
+      <div className="signUpForm">
         <h1>Sign Up</h1>
-        <div className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="name">
             <label htmlFor="name">Enter Your Name</label>
             <input
               type="text"
               id="name"
+              name="name"
+              value={values.name}
               placeholder="Name"
-              onChange={(event) => {
-                setName(event.target.value);
-              }}
+              required
+              onChange={handleChange}
             />
           </div>
           <div className="email">
@@ -65,21 +39,21 @@ const SignUpForm = () => {
             <input
               type="email"
               id="email"
+              name="email"
               placeholder="Email"
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
+              required
+              onChange={handleChange}
             />
           </div>
-          <div className="Password">
+          <div className="password">
             <label htmlFor="password">Enter Password</label>
             <input
               type="password"
               id="password"
-              placeholder="Password"
-              onChange={(event) => {
-                setPassword(event.target.value);
-              }}
+              name="password"
+              placeholder="***************"
+              required
+              onChange={handleChange}
             />
           </div>
           <div className="confirmPassword">
@@ -87,17 +61,19 @@ const SignUpForm = () => {
             <input
               type="password"
               id="confirmPassword"
+              name="confirmPassword"
               placeholder="Confirm Password"
-              onChange={(event) => {
-                setConfirmPassword(event.target.value);
-              }}
+              required
+              onChange={handleChange}
+
             />
           </div>
           <div className="submitForm">
-            <button className="submit-btn" onClick={submitForm}>Submit Form</button>
+            <button type="submit" className="submit-btn">Submit Form</button>
           </div>
-        </div>
+        </form>
       </div>
+
     </div>
   );
 };

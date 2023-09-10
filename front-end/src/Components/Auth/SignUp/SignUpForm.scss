@@ -7,49 +7,57 @@
     align-items: center;
     gap: 3rem;
     width: 100%;
-    .form{
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        > *{
+    .signUpForm{
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        padding: 2rem;
+        box-sizing: border-box;
+        border-radius: 7px;
+        margin: 0.5rem;
+        .form{
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
-            
-                label{
-                    font-size: 12px;
-                    font-weight: 600;
-                }
-             
-              
-                .submit-btn{
+            gap: 1.5rem;
+            > *{
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+                
+                    label{
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                 
+                  
+                    .submit-btn{
+                        max-width: 250px;
+                        min-width: 250px;
+                        padding: 0.5rem;
+                        font-size: 16px;
+                        border-radius: 0.5rem;
+                    }
+                
+            }
+            .email{
+                input{
                     max-width: 250px;
                     min-width: 250px;
                     padding: 0.5rem;
-                    font-size: 16px;
+                    box-sizing: border-box;
+                    border: 2px solid #f9e076;
                     border-radius: 0.5rem;
                 }
-            
-        }
-        .email{
-            input{
-                max-width: 250px;
-                min-width: 250px;
-                padding: 0.5rem;
-                box-sizing: border-box;
-                border: 2px solid #f9e076;
-                border-radius: 0.5rem;
             }
-        }
-        .password{
-            input{
-                max-width: 250px;
-                min-width: 250px;
-                padding: 0.5rem;
-                box-sizing: border-box;
-                border: 2px solid #f9e076;
-                border-radius: 0.5rem;
+            .password{
+                input{
+                    max-width: 250px;
+                    min-width: 250px;
+                    padding: 0.5rem;
+                    box-sizing: border-box;
+                    border: 2px solid #f9e076;
+                    border-radius: 0.5rem;
+                }
             }
         }
     }
+
 }
