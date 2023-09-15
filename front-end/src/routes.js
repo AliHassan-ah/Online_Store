@@ -11,7 +11,7 @@ import Index from "./Pages/Index";
             element:<SignUp/>
         },
         {
-            path:'/log-in',
+            path:'/sign-in',
             element:<LogIn/>
         },
 

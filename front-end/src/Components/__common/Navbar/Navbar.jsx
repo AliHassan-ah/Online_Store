@@ -17,11 +17,6 @@ const Navbar = (props) => {
             <img src={mainLogo} alt="" width="80px" />
           </div>
           <div className="searchBar">
-              <DropDown
-                className="allBtn"
-                placeHolder="All"
-                options={categories}
-              />
             <div className="searchBar">
               <input placeholder="Search Amazon"/>
             </div>

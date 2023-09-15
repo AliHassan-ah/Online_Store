@@ -2,6 +2,7 @@ import React from "react";
 import "./SignUpForm.scss";
 import { useFormik } from "formik";
 import { signuUpSchema } from "../../../schemas";
+import { useNavigate  } from 'react-router-dom';
 const initialValues = {
   name: "",
   email: "",
@@ -9,6 +10,7 @@ const initialValues = {
   confirmPassword: "",
 };
 const SignUpForm = () => {
+  let navigate = useNavigate()
   const { handleChange, touched, handleBlur, values, errors, handleSubmit } =
     useFormik({
       initialValues,
@@ -22,24 +24,24 @@ const SignUpForm = () => {
   return (
     <div className="wrapper">
       <div className="signUpForm">
-        <h1>Sign Up</h1>
+        <div className="heading">Sign Up</div>
         <form className="form" onSubmit={handleSubmit}>
-          <div className="name">
+          <div className="dataField">
             <label htmlFor="name">Enter Your Name</label>
             <input
-              type="name"
-              autoComplete="off"
+              type="text"
               id="name"
               name="name"
               value={values.name}
               placeholder="Name"
               onChange={handleChange}
+              className="inputFiled"
             />
             {errors.name && touched.name ? (
-              <p className="form-error">{errors.name}</p>
+              <p className="formError">{errors.name}</p>
             ) : null}
           </div>
-          <div className="email">
+          <div className="dataField">
             <label htmlFor="email">Enter Email</label>
             <input
               type="email"
@@ -47,12 +49,15 @@ const SignUpForm = () => {
               name="email"
               placeholder="Email"
               onChange={handleChange}
+              className="inputFiled"
+              value={values.email}
+
             />
             {errors.email && touched.email ? (
-              <p className="form-error">{errors?.email}</p>
+              <p className="formError">{errors?.email}</p>
             ) : null}
           </div>
-          <div className="password">
+          <div className="dataField">
             <label htmlFor="password">Enter Password</label>
             <input
               type="password"
@@ -60,12 +65,15 @@ const SignUpForm = () => {
               name="password"
               placeholder="***************"
               onChange={handleChange}
+              className="inputFiled"
+              value={values.password}
+
             />
             {errors.password && touched.password ? (
-              <p className="form-error">{errors?.password}</p>
+              <p className="formError">{errors?.password}</p>
             ) : null}
           </div>
-          <div className="confirmPassword">
+          <div className="dataField">
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               type="password"
@@ -73,16 +81,22 @@ const SignUpForm = () => {
               name="confirmPassword"
               placeholder="Confirm Password"
               onChange={handleChange}
+              className="inputFiled"
+              value={values.confirmPassword}
             />
             {errors.confirmPassword && touched.confirmPassword ? (
-              <p className="form-error">{errors?.confirmPassword}</p>
+              <p className="formError">{errors?.confirmPassword}</p>
             ) : null}
           </div>
-          <div className="submitForm">
-            <button type="submit" className="submit-btn">
-              Submit Form
+          <div className="haveAccount">Already have an account? <a onClick={()=>{
+            navigate("/sign-in")
+          }}>Login</a></div>
+          <div className="formBtn">
+          <button type="submit" className="submitBtn">
+              Sign Up
             </button>
           </div>
+
         </form>
       </div>
     </div>
