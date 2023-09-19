@@ -13,5 +13,5 @@ userSchema.methods.generateHashedPassword = async function(){
     this.password = await bcrypt.hash(this.password,salt)
 }
 
-var User = mongoose.model("User",userSchema)
-module.exports = {User}
+var userModel = mongoose.model("User",userSchema)
+module.exports = {userModel}
