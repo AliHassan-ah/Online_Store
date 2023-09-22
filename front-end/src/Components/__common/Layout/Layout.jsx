@@ -1,10 +1,10 @@
 import React from 'react'
 import './layout.scss'
-const Layout = () => {
+const Layout = (props) => {
   return (
     <div className='container'>
         <div className='wrapper'>
-            <slot></slot>
+           {props.children}
         </div>
       
     </div>
