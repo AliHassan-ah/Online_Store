@@ -27,6 +27,27 @@ const signup = async (req, res) => {
     res.status(500).send("Something went wrong")
   }
 };
-const signin = async (req, res) => {};
+const signin = async (req, res) => {
+    const {email,password} =  req.body
+    try{
+      const existingUser = await userModel.findOne({ email: email });
+      if (!existingUser) {
+        return res.status(404).send("User Not Found");
+      }
+      const matchPassword =  await bcrypt.compare(password,existingUser.password)
+      if(!matchPassword){
+        return res.status(400).send("Invalid Credentials")
+      }
+      const token = jwt.sign(
+        { email: existingUser.email, id: existingUser._id },
+        config.get("jwtPrivateKey")
+      );
+      return res.status(201).send({user:existingUser,token})
+    }
+    catch(error){
+      console.log(error)
+      res.status(500).send("Error","Something went wrong")
+    }
+};
 
 module.exports = { signup, signin };
