@@ -1,20 +1,31 @@
 import React from 'react'
-import CardImage from '../../../assets/Toys.jpg'
+import CardImage from '../../../assets/products/Toys.jpg'
 import './DisplayCard.scss'
+import ProductsData from './productData'
 const DisplayCard = () => {
   return (
-    <div className='card'> 
+    <div className='cardContainer'>
+    {
+      ProductsData.map((product,index)=>(
+        <div className='cardWrapper' key={index}> 
       <div className='cardTitle'>
-        Title
+        {product?.title}
       </div>
       <div className='cardImage'>
-        <img src={CardImage} alt="" />
+        <img src={product?.coverImage} alt="Product Image" />
+
       </div>
       <div className='description'>
-        shop now
+        {product?.title}
+
       </div>
     </div>
+        
+      ))
+    }
+    </div>
+    
   )
 }
 
-export default DisplayCard
+export default DisplayCard;

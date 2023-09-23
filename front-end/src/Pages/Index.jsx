@@ -4,7 +4,7 @@ import Layout from '../Components/__common/Layout/Layout'
 
 const index = () => {
   return (
-    <div>
+    <div className='HomePage' style={{backgroundColor:"#E3E6E6"}}>
       <Layout>
       <HomePage/>
       </Layout>

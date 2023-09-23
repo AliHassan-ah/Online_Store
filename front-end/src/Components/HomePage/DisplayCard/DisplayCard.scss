@@ -1,0 +1,38 @@
+.cardContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    overflow: hidden;
+    flex-wrap: wrap;
+    .cardWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    row-gap: 1rem;
+    background-color: #fff;
+    padding: 1rem 20px;
+    box-sizing: border-box;
+    .cardTitle{
+        max-height:54px;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+    .cardImage{
+        img{
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+    .description{
+        color: #007185;
+        font-size: 13px;
+        cursor: pointer;
+        &:hover{
+            color:  #C7511F;
+        }
+    }
+}
+}

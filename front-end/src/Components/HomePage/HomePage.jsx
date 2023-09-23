@@ -5,7 +5,7 @@ const HomePage = () => {
   const options=['Hello','HI'];
   const placeHolder ='TRee';
   return (
-    <div>
+    <div className='HomePageContainer'>
       <h1>HomePage</h1>
       <DisplayCard/>
     </div>
