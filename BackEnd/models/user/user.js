@@ -8,10 +8,10 @@ const userSchema = mongoose.Schema({
 
 })
 
-userSchema.methods.generateHashedPassword = async function(){
-    let salt =  await bcrypt.genSalt(10)
-    this.password = await bcrypt.hash(this.password,salt)
-}
+// userSchema.methods.generateHashedPassword = async function(){
+//     let salt =  await bcrypt.genSalt(10)
+//     this.password = await bcrypt.hash(this.password,salt)
+// }
 
 var userModel = mongoose.model("User",userSchema)
 module.exports = {userModel}

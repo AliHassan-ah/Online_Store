@@ -3,6 +3,7 @@ var bcrypt = require("bcryptjs");
 const config = require("config")
 var _ = require("lodash")
 const jwt = require("jsonwebtoken");
+//Sign Up
 const signup = async (req, res) => {
   const { userName, email, password } = req.body;
   try {
@@ -16,17 +17,19 @@ const signup = async (req, res) => {
       password: hashedPassword,
       email: email,
     });
-    const token = jwt.sign(
-      { email: newUser.email, id: newUser._id },
-      config.get("jwtPrivateKey")
-    );
+    // const token = jwt.sign(
+    //   { email: newUser.email, id: newUser._id },
+    //   config.get("jwtPrivateKey")
+    // );
     await newUser.save();
-    return res.status(201).send({ token: token, newUser});
+    // return res.status(201).send({ token: token, newUser});
+    return res.status(201).send( _.pick(newUser,['name','email']));
 } catch (error) {
     console.log("Error",error);
     res.status(500).send("Something went wrong")
   }
 };
+//Sign
 const signin = async (req, res) => {
     const {email,password} =  req.body
     try{
@@ -42,6 +45,7 @@ const signin = async (req, res) => {
         { email: existingUser.email, id: existingUser._id },
         config.get("jwtPrivateKey")
       );
+      // req.session.user = existingUser
       return res.status(201).send({user:existingUser,token})
     }
     catch(error){
@@ -49,5 +53,8 @@ const signin = async (req, res) => {
       res.status(500).send("Error","Something went wrong")
     }
 };
+const logout = async (req,res)=>{
+  req.session.user = null
+}
 
-module.exports = { signup, signin };
+module.exports = { signup, signin,logout };
