@@ -1,0 +1,35 @@
+.navbarWrapper{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #131921;
+    .navBar{
+        padding: 0.7rem 1.5rem; 
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        .logo{
+            img{
+                background-color: white;
+            }
+        }
+        .searchBar{
+            // display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: black;
+            width: 100%;
+            .allBtn{
+                color: white;
+                border-radius: 7px;
+            }
+            input{
+                padding: 0.8rem;
+                box-sizing: border-box;
+                border-top-right-radius: 7px;
+                border-bottom-right-radius: 7px;
+            }
+        }
+    }
+    
+}

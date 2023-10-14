@@ -1,0 +1,93 @@
+.wrapper {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  .signUpForm {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 2rem 3rem;
+    box-sizing: border-box;
+    border-radius: 7px;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .heading{
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      padding-bottom: 1rem;
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      .dataField {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        label {
+          font-size: 12px;
+          font-weight: 600;
+        }
+        .inputFiled {
+          max-width: 250px;
+          min-width: 250px;
+          padding: 0.5rem;
+          box-sizing: border-box;
+          border: 2px solid #f9e076;
+          border-radius: 0.5rem;
+        }
+        .formError{
+            font-size: 12px;
+            margin: 0;
+            font-weight: 500;
+            color: #ff0e0e;
+        }
+      }
+      .haveAccount{
+        display: flex;
+        font-size: 12px;
+        flex-direction: row;
+        font-weight: 500;
+        a{
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      .formBtn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        .submitBtn{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 250px;
+          min-width: 250px;
+          padding: 0.7rem;
+          font-size: 16px;
+          font-weight: 600;
+          background-color: #f9e076;
+          border-radius: 0.5rem;
+          box-sizing: border-box;
+          border: none; 
+          cursor: pointer;
+          border: 2px solid #f9e076;
+          &:hover{
+            background-color: transparent;
+          }
+        }
+
+      }
+    
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.wrapper{
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    
+    .loginForm{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 2rem 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        > *{
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            
+                label{
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+              
+                .submitBtn{
+                    max-width: 250px;
+                    min-width: 250px;
+                    padding: 0.5rem;
+                    font-size: 16px;
+                    border-radius: 0.5rem;
+                    background-color: #FFD814;
+                    border: 2px solid #FFD814;
+                    font-weight: 600;
+                    cursor: pointer;
+                    &:hover{
+                    background-color: transparent;
+
+                    }
+                }
+            
+        }
+        .email{
+            input{
+                max-width: 250px;
+                min-width: 250px;
+                padding: 0.5rem;
+                box-sizing: border-box;
+                border: 2px solid #f9e076;
+                border-radius: 0.5rem;
+            }
+
+        }
+        .password{
+            input{
+                max-width: 250px;
+                min-width: 250px;
+                padding: 0.5rem;
+                box-sizing: border-box;
+                border: 2px solid #f9e076;
+                border-radius: 0.5rem;
+            }
+
+        }
+        .rememberMe{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    }
+}
