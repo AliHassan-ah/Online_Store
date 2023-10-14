@@ -1,52 +1,38 @@
 import React, { useState,useEffect } from "react";
 import Cookies from "js-cookie";
 import "./LogInForm.scss";
+import { useNavigate  } from 'react-router-dom';
+import { useFormik } from "formik";
+import { signInSchema } from "../../../schemas";
 
 const LogInForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const initialValues = {
+    email:"",
+    password : "",
+    rememberMe : ""
+  }
+  const {handleChange,touched,handleBlur,values,errors,handleSubmit } =
+  useFormik({
+    initialValues,
+    validationSchema : signInSchema,
+    onSubmit: (values,action)=>{
+      console.log("Sing In Values",values);
+      action.resetForm();
+    }
+  })
   const [rememberMe, setRememberMe] = useState(true);
+  const navigate = useNavigate()
  
   //Remember Me
   const handleRememberMe = () => {
     setRememberMe(!rememberMe);
   };
-  //Email Validation
-  const emailValidation = () => {
-    if (!/^.+@.+\..+$/.test(email.trim())) {
-      alert("Enter Correct Email Adress");
-    }
-  };
-  //Password Validation
-  const passwordValidation = () => {
-    // if (
-    //   password.trim("") ||
-    //   password.length < 3 ||
-    //   !/\d/.test(password) // Check if it contains at least one digit
-    // ) {
-    //   alert("Enter Valid password containing atleast one digit ");
-    // }
-    // if (!/^.+@.+\..+$/.test(email.trim())) {
-    //   alert("Enter Correct Email Adress");
-    // }
-  };
-  //Submit Form
-  const submitForm = () => {
-    emailValidation();
-    passwordValidation()
-    if(rememberMe){
-        Cookies.set("rememberedEmail",email)
-        Cookies.set("rememberedPassword",password)
-    }
-  };
   useEffect(()=>{
     const rememberedEmail = Cookies.get("rememberedEmail")
     const rememberedPassword = Cookies.get("rememberedPassword")
     if(rememberedEmail){
-     setEmail(rememberedEmail)
     }
     if(rememberedPassword){
-     setPassword(rememberedPassword)
     }
  
    },[])
@@ -56,16 +42,15 @@ const LogInForm = () => {
     <div>
       <div className="wrapper">
         <h1>Sign In</h1>
-        <div className="form">
+        <form className="loginForm" onSubmit={handleSubmit}>
           <div className="email">
             <label htmlFor="email">Enter Email</label>
             <input
               type="email"
               id="email"
               placeholder="Email"
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
+              onChange={handleChange}
+              value={values.email}
             />
           </div>
           <div className="password">
@@ -75,9 +60,8 @@ const LogInForm = () => {
               id="password"
               placeholder="Password"
               className="password-input"
-              onChange={(event) => {
-                setPassword(event.target.value);
-              }}
+              onChange={handleChange}
+              value={values.password}
             />
           </div>
           <div className="rememberMe">
@@ -90,11 +74,14 @@ const LogInForm = () => {
             <label htmlFor="rember-me">Remember Me</label>
           </div>
           <div className="submitForm">
-            <button className="submit-btn" onClick={submitForm}>
+            <button className="submitBtn" type="submit">
               Log In
             </button>
           </div>
-        </div>
+          <div className="haveAccount">Not Have amn account? <a onClick={()=>{
+            navigate("/sign-in")
+          }}>Sin Up</a></div>
+        </form>
       </div>
     </div>
   );

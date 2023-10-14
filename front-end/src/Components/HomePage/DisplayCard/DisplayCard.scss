@@ -5,6 +5,7 @@
     gap: 2rem;
     overflow: hidden;
     flex-wrap: wrap;
+    justify-content: flex-start;
     .cardWrapper{
     display: flex;
     flex-direction: column;
@@ -18,10 +19,11 @@
         max-height:54px;
         font-weight: 500;
         font-size: 1.3rem;
+        width: 230px;
     }
     .cardImage{
         img{
-            width: 250px;
+            width: 230px;
             height: 300px;
             object-fit: cover;
         }

@@ -16,7 +16,7 @@ const DisplayCard = () => {
 
       </div>
       <div className='description'>
-        {product?.title}
+        {product?.status}
 
       </div>
     </div>

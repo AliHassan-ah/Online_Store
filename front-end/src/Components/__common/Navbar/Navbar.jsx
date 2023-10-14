@@ -18,7 +18,7 @@ const Navbar = (props) => {
           </div>
           <div className="searchBar">
             <div className="searchBar">
-              <input placeholder="Search Amazon"/>
+              {/* <input placeholder="Search Amazon"/> */}
             </div>
           </div>
         </div>
