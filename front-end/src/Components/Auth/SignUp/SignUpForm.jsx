@@ -2,7 +2,8 @@ import React from "react";
 import "./SignUpForm.scss";
 import { useFormik } from "formik";
 import { signuUpSchema } from "../../../schemas";
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import userService from "../../../Services/UserService";
 const initialValues = {
   name: "",
   email: "",
@@ -10,12 +11,18 @@ const initialValues = {
   confirmPassword: "",
 };
 const SignUpForm = () => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const { handleChange, touched, handleBlur, values, errors, handleSubmit } =
     useFormik({
       initialValues,
       validationSchema: signuUpSchema,
       onSubmit: (values, action) => {
+        userService
+          .addUser(values)
+          .then((data) => {
+            console.log("Login Data", data);
+          })
+          .catch((err) => console.log("Sign Up Error", err));
         console.log(values);
         action.resetForm();
       },
@@ -51,7 +58,6 @@ const SignUpForm = () => {
               onChange={handleChange}
               className="inputFiled"
               value={values.email}
-
             />
             {errors.email && touched.email ? (
               <p className="formError">{errors?.email}</p>
@@ -67,7 +73,6 @@ const SignUpForm = () => {
               onChange={handleChange}
               className="inputFiled"
               value={values.password}
-
             />
             {errors.password && touched.password ? (
               <p className="formError">{errors?.password}</p>
@@ -88,15 +93,21 @@ const SignUpForm = () => {
               <p className="formError">{errors?.confirmPassword}</p>
             ) : null}
           </div>
-          <div className="haveAccount">Already have an account? <a onClick={()=>{
-            navigate("/sign-in")
-          }}>Login</a></div>
+          <div className="haveAccount">
+            Already have an account?{" "}
+            <a
+              onClick={() => {
+                navigate("/sign-in");
+              }}
+            >
+              Login
+            </a>
+          </div>
           <div className="formBtn">
-          <button type="submit" className="submitBtn">
+            <button type="submit" className="submitBtn">
               Sign Up
             </button>
           </div>
-
         </form>
       </div>
     </div>

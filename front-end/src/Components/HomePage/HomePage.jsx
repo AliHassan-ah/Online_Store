@@ -14,6 +14,7 @@ const HomePage = () => {
           <Link to="/sign-in">
             <div className="signInButton">Sign in securely</div>
           </Link>
+          {/* <div>This is my Secret Key{process.env.REACT_APP_SECRET_KEY}</div> */}
         </div>
         <div></div>
       </div>
