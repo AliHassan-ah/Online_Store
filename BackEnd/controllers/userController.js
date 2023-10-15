@@ -46,7 +46,8 @@ const signin = async (req, res) => {
         config.get("jwtPrivateKey")
       );
       // req.session.user = existingUser
-      return res.status(201).send({user:existingUser,token})
+      // return res.status(201).send({user:existingUser,token})
+      return res.status(201).send(token)
     }
     catch(error){
       console.log(error)

@@ -10,6 +10,8 @@ const sessionAuth  = require('./middlewares/sessionAuth')
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users/users");
 const config = require("config")
+var cors = require('cors')
+
 
 var app = express();
 app.use(session({ 		//Usuage
@@ -18,7 +20,7 @@ app.use(session({ 		//Usuage
   saveUninitialized: true,
   cookie: { maxAge:60000}
 }));
-
+app.use(cors())
 // app.use(sessionAuth)
 app.use(logger("dev"));
 app.use(express.json());
